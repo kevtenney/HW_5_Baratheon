@@ -12,11 +12,12 @@ class Roman
 {
 private:
     unsigned int value;  //The roman numeral itself isn't stored.  Instead, we just store the integer that corresponds to it.
+    string romanNum;
     string convertToRoman() const;  //The method that helps us take an integer and turn it into a roman numeral
     void convertFromRoman(const string&);  //The method that helps us take an roman numeral in a string and convert it into the integer.
 public:
     Roman() : value(0) {}  //The default constructor that allows us to make empty objects.
-    Roman(const string&){}  //The constructor which accepts a string and  converts it internally to an integer.  It actually just forwards it onto convertFromRoman()
+    Roman(const string&): string(romanNum){stoi(romanNum);}  //The constructor which accepts a string and  converts it internally to an integer.  It actually just forwards it onto convertFromRoman()
 
     Roman operator+(const Roman&) const;  //The left and right operands are Roman objects
     Roman operator+(const int) const; //The left operand is a Roman object, the right is an int number.

@@ -7,7 +7,7 @@
 using namespace std;
 
 Roman::Roman() : value(0) {}
-Roman::Roman(const string&) {}
+Roman::Roman(const string&){}
 
 //This helps with testing, do not modify.
 bool checkTest(string testName, int whatItShouldBe, const Roman& obj)
