@@ -4,14 +4,6 @@
 
 #include "Roman.h"
 
-/*!
- * Default constructor
- */
-Roman::Roman()
-{
-    value = 0;
-}
-
 //This helps with testing, do not modify.
 void testConstructor()
 {
@@ -20,12 +12,12 @@ void testConstructor()
     checkTest("testConstructor #1", 0, blank);
 
     //Test reading in a number.
-    //Roman a("LXVI");
-    //checkTest("testConstructor #2", 66, a);
+    Roman a("LXVI");
+    checkTest("testConstructor #2", 66, a);
 
     //Test a bigger number.
-    //Roman b("MMMDDCCLLXXVVII");
-    //checkTest("testConstructor #3", 4332, b);
+    Roman b("MMMDDCCLLXXVVII");
+    checkTest("testConstructor #3", 4332, b);
 }
 
 
@@ -43,6 +35,48 @@ bool checkTest(string testName, int whatItShouldBe, const Roman& obj )
         return false;
     }
 }
+
+
+
+/*!
+ * Default constructor
+ */
+Roman::Roman()
+{
+    value = 0;
+}
+/*! Constructor with 1 argument
+ *  Take in a roman numeral, convert to integer
+ */
+Roman::Roman(const string &str)
+{
+    convertFromRoman(str);
+}
+/*! Function: Convert Roman numerals to integers */
+void Roman::convertFromRoman(const string &roman)
+{
+    cout << "Roman number " << roman << endl;
+    // Do logic to transform a roman number to a decimal number
+    // LXVI = 66;
+    value = 66;
+}
+
+/*!
+ * Function: Convert integer to roman numeral
+ * @return
+ */
+string Roman::convertToRoman() const
+{
+    return std::string();
+}
+
+/*!
+ * Function: Convert integers to roman numerals
+ */
+/*string Roman::convertToRoman() const
+{
+    return std::string();
+}*/
 
 //This helps with testing, do not modify.
 bool checkTest(string testName, string whatItShouldBe, string whatItIs )
