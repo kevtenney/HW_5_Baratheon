@@ -12,7 +12,7 @@ using namespace std;
 int main()
 {
     testConstructor();
-    //testOperatorPlus();
+    testOperatorPlus();
     //testOperatorPlusEqual();
     //testOperatorIncrement();
     //testOutput();

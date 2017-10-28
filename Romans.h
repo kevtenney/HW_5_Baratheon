@@ -4,6 +4,7 @@
 #ifndef HW_5_BARATHEON_ROMANS_H
 #define HW_5_BARATHEON_ROMANS_H
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Romans
@@ -15,12 +16,18 @@ public:
     Romans(const string &roman);
 
     void convertFromRoman(const string &str);
-    //These two are for testing purposes only.  They have been given to you.
-    friend bool checkTest(string, int, const Romans&);  //A testing function.  It is friended so it can access the class.
-    friend void testOutput(); //Another test function that needs to access private class members.
+
+    Romans operator+(const Romans &r1) const; //The left and right operands are Roman objects
+    Romans operator+(const int dec) const; //The left operand is a Roman object, the right is an int number.
+
+    //These two are for testing purposes only
+    friend bool checkTest(string, int, const Romans&);
+    friend void testOutput();
+
 };
 
 // Function Prototypes
 void testConstructor();
+void testOperatorPlus();
 
 #endif //HW_5_BARATHEON_ROMANS_H
