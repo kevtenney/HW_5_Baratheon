@@ -26,7 +26,7 @@ Romans::Romans(const string &roman)
  * Convert the roman numeral to an decimal number
  * @param str The roman numeral string being passed in
  */
-void Romans::convertFromRoman(const string &str)
+void Romans::convertFromRoman(const string& str)
 {
     cout << "Roman number " << str << endl;
     unsigned int i =0, amount= 0;
@@ -82,27 +82,30 @@ while (value - 1000 > 0)
  * @param r1 Passes in
  * @return
  */
-Romans Romans::operator+(const Romans &r1) const
+Romans Romans::operator+(const Romans& r1) const
 {
     Romans r2;
     r2.value = value + r1.value;
     return r2;
 }
 
-{
-
-}
 /*!
  * Adds a Roman with a decimal/int number
- * @return
+ * @return Return the calculated value
  */
-Romans Romans::operator+(const int dec) const
+Romans operator+(const Romans& r1, const int dec)
 {
     Romans r2;
-    r2.value = dec + value;
+    r2.value = r1.value + dec;
     return r2;
 }
 
+Romans operator+(const int dec, const Romans &r1)
+{
+    Romans r2;
+    r2.value = dec + r1.value;
+    return r2;
+}
 
 
 
@@ -152,10 +155,10 @@ bool checkTest(string testName, int whatItShouldBe, const Romans& obj )
 }
 /*!
  * Helps with testing the constructor
- * @param testName
- * @param whatItShouldBe
- * @param whatItIs
- * @return
+ * @param testName Name/number of test. Used for identification
+ * @param whatItShouldBe The expected result
+ * @param whatItIs What is return
+ * @return Whether whatItIs = whatItShouldBe or not
  */
 //This helps with testing, do not modify.
 bool checkTest(string testName, string whatItShouldBe, string whatItIs )
