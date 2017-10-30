@@ -23,6 +23,7 @@ public:
     friend Romans operator+(const int dec, const Romans& r1);
     void operator+=(const Romans&);
     void operator+=(const int);
+    Romans operator++();
 
     //These two are for testing purposes only
     friend bool checkTest(string, int, const Romans&);
@@ -34,4 +35,5 @@ public:
 void testConstructor();
 void testOperatorPlus();
 void testOperatorPlusEqual();
+void testOperatorIncrement();
 #endif //HW_5_BARATHEON_ROMANS_H

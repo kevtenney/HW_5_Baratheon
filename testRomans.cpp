@@ -14,7 +14,7 @@ int main()
     testConstructor();
     testOperatorPlus();
     testOperatorPlusEqual();
-    //testOperatorIncrement();
+    testOperatorIncrement();
     //testOutput();
 
     return 0;

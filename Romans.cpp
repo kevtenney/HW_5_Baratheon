@@ -121,6 +121,13 @@ void Romans:: operator+=(const int dec)
 {
     value += dec;
 }
+Romans Romans:: operator ++()
+{
+    Romans r2;
+    r2.value = ++value;
+    return r2;
+
+}
 
 
 
@@ -230,7 +237,7 @@ void testOperatorPlusEqual()
     b += 17;
     checkTest("testOperatorPlusEqual #3", 1218, b);
 }
-/*
+
 void testOperatorIncrement()
 {
     //Test prefix increment
@@ -240,7 +247,7 @@ void testOperatorIncrement()
     checkTest("testOperatorIncrement #1", 1053, a);
     checkTest("testOperatorIncrement #2", 1053, b);
 }
-
+/*
 void testConsoleIO()
 {
     //Test reading in the data using the extraction operator >>
@@ -253,3 +260,15 @@ void testConsoleIO()
     cout << "testConsoleIO #2" << endl << "If this says 260, this test passed: " << a << endl;
 
 }*/
+void testOutput()
+{
+    Romans a("MDCLXVI");
+    string b = a.convertToRoman();
+    checkTest("testOutput #1", "MDCLXVI", b);
+
+    //This is really the value 7.  Your code should correctly read this in and convert it back to VII.
+    Romans c("IIIIIII");
+    b = c.convertToRoman();
+    checkTest("testOutput #2", "VII", b);
+
+}
