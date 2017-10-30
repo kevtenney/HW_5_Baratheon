@@ -100,6 +100,12 @@ Romans operator+(const Romans& r1, const int dec)
     return r2;
 }
 
+/*!
+ * Adds a decimal/int number with a Roman
+ * @param dec: decimal number
+ * @param r1: Roman number
+ * @return: return the calculated value
+ */
 Romans operator+(const int dec, const Romans &r1)
 {
     Romans r2;
@@ -173,6 +179,7 @@ bool checkTest(string testName, string whatItShouldBe, string whatItIs )
         return false;
     }
 }
+
 /*!
  * Tests adding a roman to a roman and a roman to a decimal number
  */
@@ -199,3 +206,41 @@ void testOperatorPlus()
     //make sure the right operand wasn't modified
     checkTest("testOperatorPlus #7", 16, a);
 }
+
+void testOperatorPlusEqual()
+{
+    //Test adding two roman objects
+    Romans a("MLII");
+    Romans b("DDCCI");
+    a += b;
+    checkTest("testOperatorPlusEqual #1", 2253, a);
+    //make sure the right operand wasn't modified
+    checkTest("testOperatorPlusEqual #2", 1201, b);
+
+    //Test adding on an integer
+    b += 17;
+    checkTest("testOperatorPlusEqual #3", 1218, b);
+}
+/*
+void testOperatorIncrement()
+{
+    //Test prefix increment
+    Romans a("MLII");
+    Romans b("DDCCI");
+    b = ++a;
+    checkTest("testOperatorIncrement #1", 1053, a);
+    checkTest("testOperatorIncrement #2", 1053, b);
+}
+
+void testConsoleIO()
+{
+    //Test reading in the data using the extraction operator >>
+    cout << "Enter the text CCLX: ";
+    Romans a;
+    cin >> a;
+    checkTest("testConsoleIO #1", 260, a);
+
+    //Test outputting data using the insertion operator <<
+    cout << "testConsoleIO #2" << endl << "If this says 260, this test passed: " << a << endl;
+
+}*/
