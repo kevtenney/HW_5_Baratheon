@@ -3,7 +3,6 @@
 //
 #include "Romans.h"
 
-
 /*!
  * Default constructor
  * Set value to zero
@@ -70,6 +69,7 @@ void Romans::convertFromRoman(const string& str)
 
 /*Convert TO Roman
 string roman;
+for (int i = 0; i <
 while (value - 1000 > 0)
 {
     roman = "M"
@@ -130,7 +130,6 @@ void testConstructor()
     //Test a bigger number.
     Romans b("MMMDDCCLLXXVVII");
     checkTest("testConstructor #3", 4332, b);
-
 }
 /*!
  * Checks if constructors pass/work
@@ -199,5 +198,4 @@ void testOperatorPlus()
     checkTest("testOperatorPlus #6", 594, c);
     //make sure the right operand wasn't modified
     checkTest("testOperatorPlus #7", 16, a);
-
 }
