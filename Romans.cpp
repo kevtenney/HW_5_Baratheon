@@ -112,6 +112,15 @@ Romans operator+(const int dec, const Romans &r1)
     r2.value = dec + r1.value;
     return r2;
 }
+void Romans:: operator+=(const Romans& r1)
+{
+    value += r1.value;
+
+}
+void Romans:: operator+=(const int dec)
+{
+    value += dec;
+}
 
 
 

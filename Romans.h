@@ -21,6 +21,8 @@ public:
     Romans operator+(const Romans& r1) const; //The left and right operands are Roman objects
     friend Romans operator+(const Romans& r1, const int dec); //The left operand is a Roman object, the right is an int number.
     friend Romans operator+(const int dec, const Romans& r1);
+    void operator+=(const Romans&);
+    void operator+=(const int);
 
     //These two are for testing purposes only
     friend bool checkTest(string, int, const Romans&);
@@ -31,5 +33,5 @@ public:
 // Function Prototypes
 void testConstructor();
 void testOperatorPlus();
-
+void testOperatorPlusEqual();
 #endif //HW_5_BARATHEON_ROMANS_H
