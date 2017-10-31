@@ -16,19 +16,21 @@ public:
     Romans(const string& roman);
 
     void convertFromRoman(const string &str);
+    void convertToRoman(const Romans&);
 
     // Operators
     Romans operator+(const Romans& r1) const; //The left and right operands are Roman objects
     friend Romans operator+(const Romans& r1, const int dec); //The left operand is a Roman object, the right is an int number.
     friend Romans operator+(const int dec, const Romans& r1);
+
+
     void operator+=(const Romans&);
     void operator+=(const int);
     Romans operator++();
+    friend void testOutput(); //Another test function that needs to access private class members.
 
     //These two are for testing purposes only
     friend bool checkTest(string, int, const Romans&);
-    friend void testOutput();
-
 };
 
 // Function Prototypes

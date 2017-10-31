@@ -68,14 +68,32 @@ void Romans::convertFromRoman(const string& str)
 }
 
 /*Convert TO Roman
-string roman;
-for (int i = 0; i <
-while (value - 1000 > 0)
-{
-    roman = "M"
-}
-// And so on for each value
- */
+void Romans::convertToRoman(const Romans &) {
+    string roman;
+    for (int i = 0; i < value; i++) {
+
+        if (value - 1000 > 0) {
+            roman.at(i) = 'M';
+        } else if (value - 500 > 0) {
+            roman.at(i) = 'D';
+        } else if (value - 100 > 0) {
+            roman.at(i) = 'C';
+        } else if (value - 50 > 0) {
+            roman.at(i) = 'L';
+        } else if (value - 10 > 0) {
+            roman.at(i) = 'X';
+        } else if (value - 5 > 0) {
+            roman.at(i) = 'V';
+        } else if (value - 1 > 0) {
+            roman.at(i) = 'I';
+        } else if (value == 0) {
+            break;
+        } else {
+            cout << "System error";
+        }
+
+    }
+}*/
 
 /*!
  * Overloads + operator to add two different roman values
@@ -106,7 +124,7 @@ Romans operator+(const Romans& r1, const int dec)
  * @param r1: Roman number
  * @return: return the calculated value
  */
-Romans operator+(const int dec, const Romans &r1)
+Romans operator+(const int dec, const Romans& r1)
 {
     Romans r2;
     r2.value = dec + r1.value;
@@ -128,6 +146,7 @@ Romans Romans:: operator ++()
     return r2;
 
 }
+
 
 
 
@@ -259,7 +278,7 @@ void testConsoleIO()
     //Test outputting data using the insertion operator <<
     cout << "testConsoleIO #2" << endl << "If this says 260, this test passed: " << a << endl;
 
-}*/
+}
 void testOutput()
 {
     Romans a("MDCLXVI");
@@ -272,3 +291,4 @@ void testOutput()
     checkTest("testOutput #2", "VII", b);
 
 }
+*/
