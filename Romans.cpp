@@ -28,7 +28,7 @@ Romans::Romans(const string &roman)
 void Romans::convertFromRoman(const string& str)
 {
     cout << "Roman number " << str << endl;
-    unsigned int i =0, amount= 0;
+    unsigned int i = 0, amount = 0;
 
     // Do logic to transform a roman number to a decimal number
     // LXVI = 66;
@@ -67,33 +67,59 @@ void Romans::convertFromRoman(const string& str)
     cout << "Decimal value: " << amount << endl;
 }
 
-/*Convert TO Roman
-void Romans::convertToRoman(const Romans &) {
+//Convert TO Roman
+string Romans::convertToRoman()
+{
     string roman;
-    for (int i = 0; i < value; i++) {
+    int i;
+    char arr[30];
 
-        if (value - 1000 > 0) {
-            roman.at(i) = 'M';
-        } else if (value - 500 > 0) {
-            roman.at(i) = 'D';
-        } else if (value - 100 > 0) {
-            roman.at(i) = 'C';
-        } else if (value - 50 > 0) {
-            roman.at(i) = 'L';
-        } else if (value - 10 > 0) {
-            roman.at(i) = 'X';
-        } else if (value - 5 > 0) {
-            roman.at(i) = 'V';
-        } else if (value - 1 > 0) {
-            roman.at(i) = 'I';
-        } else if (value == 0) {
-            break;
-        } else {
-            cout << "System error";
-        }
-
+    while(value >= 1000)
+    {
+        arr[i] = 'M';
+        value -= 1000;
+        ++i;
     }
-}*/
+    while(value - 500 >= 0)
+    {
+        arr[i] = 'D';
+        value -= 500;
+        ++i;
+    }
+    while (value - 100 >= 0)
+    {
+        arr[i] = 'C';
+        value -= 100;
+        ++i;
+    }
+    while (value - 50 >= 0)
+    {
+        arr[i] = 'L';
+        value -= 50;
+        ++i;
+    }
+    while (value - 10 >= 0)
+    {
+        arr[i] = 'X';
+        value -= 10;
+        ++i;
+    }
+    while (value - 5 >= 0)
+    {
+        arr[i] = 'V';
+        value -= 5;
+        ++i;
+    }
+    while (value - 1 >= 0)
+    {
+        arr[i] = 'I';
+        value -=1;
+        ++i;
+    }
+
+    roman = arr;
+    return roman;
+}
 
 /*!
  * Overloads + operator to add two different roman values
@@ -266,23 +292,12 @@ void testOperatorIncrement()
     checkTest("testOperatorIncrement #1", 1053, a);
     checkTest("testOperatorIncrement #2", 1053, b);
 }
-/*
-void testConsoleIO()
-{
-    //Test reading in the data using the extraction operator >>
-    cout << "Enter the text CCLX: ";
-    Romans a;
-    cin >> a;
-    checkTest("testConsoleIO #1", 260, a);
 
-    //Test outputting data using the insertion operator <<
-    cout << "testConsoleIO #2" << endl << "If this says 260, this test passed: " << a << endl;
-
-}
 void testOutput()
 {
     Romans a("MDCLXVI");
     string b = a.convertToRoman();
+    cout << "Dead";
     checkTest("testOutput #1", "MDCLXVI", b);
 
     //This is really the value 7.  Your code should correctly read this in and convert it back to VII.
@@ -291,4 +306,4 @@ void testOutput()
     checkTest("testOutput #2", "VII", b);
 
 }
-*/
+
