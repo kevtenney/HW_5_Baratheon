@@ -27,7 +27,7 @@ Romans::Romans(const string &roman)
  */
 void Romans::convertFromRoman(const string& str)
 {
-    cout << "Roman number " << str << endl;
+    //cout << "Roman number " << str << endl;
     unsigned int i = 0, amount = 0;
 
     // Do logic to transform a roman number to a decimal number
@@ -64,60 +64,57 @@ void Romans::convertFromRoman(const string& str)
         }
     }
     value = amount;
-    cout << "Decimal value: " << amount << endl;
+    //cout << "Decimal value: " << amount << endl;
 }
 
 //Convert TO Roman
 string Romans::convertToRoman()
 {
     string roman;
-    int i;
-    char arr[30];
+    int i = 0, temp = value;
 
-    while(value >= 1000)
+    while(temp >= 1000)
     {
-        arr[i] = 'M';
-        value -= 1000;
-        ++i;
+        roman.insert(i, "M");
+        temp -= 1000;
+        i++;
     }
-    while(value - 500 >= 0)
+    while(temp >= 500)
     {
-        arr[i] = 'D';
-        value -= 500;
-        ++i;
+        roman.insert(i, "D");
+        temp -= 500;
+        i++;
     }
-    while (value - 100 >= 0)
+    while (temp >= 100)
     {
-        arr[i] = 'C';
-        value -= 100;
-        ++i;
+        roman.insert(i, "C");
+        temp -= 100;
+        i++;
     }
-    while (value - 50 >= 0)
+    while (temp >= 50)
     {
-        arr[i] = 'L';
-        value -= 50;
-        ++i;
+        roman.insert(i, "L");
+        temp -= 50;
+        i++;
     }
-    while (value - 10 >= 0)
+    while (temp >= 10)
     {
-        arr[i] = 'X';
-        value -= 10;
-        ++i;
+        roman.insert(i, "X");
+        temp -= 10;
+        i++;
     }
-    while (value - 5 >= 0)
+    while (temp >= 5)
     {
-        arr[i] = 'V';
-        value -= 5;
-        ++i;
+        roman.insert(i, "V");
+        temp -= 5;
+        i++;
     }
-    while (value - 1 >= 0)
+    while (temp >= 1)
     {
-        arr[i] = 'I';
-        value -=1;
-        ++i;
+        roman.insert(i, "I");
+        temp -= 1;
+        i++;
     }
-
-    roman = arr;
     return roman;
 }
 
@@ -297,7 +294,6 @@ void testOutput()
 {
     Romans a("MDCLXVI");
     string b = a.convertToRoman();
-    cout << "Dead";
     checkTest("testOutput #1", "MDCLXVI", b);
 
     //This is really the value 7.  Your code should correctly read this in and convert it back to VII.
