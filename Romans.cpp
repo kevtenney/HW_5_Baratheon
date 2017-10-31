@@ -67,6 +67,10 @@ void Romans::convertFromRoman(const string& str)
     //cout << "Decimal value: " << amount << endl;
 }
 
+/*!
+ * Converts the value into Roman Numeral form
+ * @return: Returns the string of Roman Numerals
+ */
 //Convert TO Roman
 string Romans::convertToRoman()
 {
@@ -153,31 +157,42 @@ Romans operator+(const int dec, const Romans& r1)
     r2.value = dec + r1.value;
     return r2;
 }
+
+/*!
+ * Plus-Equals Operator. Adds an object to itself
+ * @param r1 : the given object
+ */
 void Romans:: operator+=(const Romans& r1)
 {
     value += r1.value;
 
 }
+
+/*!
+ * Plus-Equals Operator. Adds a decimal number to itself
+ * @param dec : the given decimal
+ */
 void Romans:: operator+=(const int dec)
 {
     value += dec;
 }
+
+/*!
+ * Increment Operator. Adds 1 to itself as a prefix
+ * @return: returns new class
+ */
 Romans Romans:: operator ++()
 {
     Romans r2;
     r2.value = ++value;
     return r2;
-
 }
-
-
 
 
 
 
 
 // Below are tests to ensure the code works.
-// KEEP FOR GRADING
 /*!
  * Checks for compatibility of constructors
  */
@@ -202,7 +217,6 @@ void testConstructor()
  * @param obj Class variable
  * @return Whether it passes
  */
-//This helps with testing, do not modify.
 bool checkTest(string testName, int whatItShouldBe, const Romans& obj )
 {
     if (whatItShouldBe == obj.value)
@@ -237,7 +251,6 @@ bool checkTest(string testName, string whatItShouldBe, string whatItIs )
         return false;
     }
 }
-
 /*!
  * Tests adding a roman to a roman and a roman to a decimal number
  */
@@ -251,20 +264,20 @@ void testOperatorPlus()
     //make sure the left and right operands weren't modified
     checkTest("testOperatorPlus #2", 16, a);
     checkTest("testOperatorPlus #3", 1666, b);
-
     //Test adding an object with an int
     c = a + 52;
     checkTest("testOperatorPlus #4", 68, c);
     //make sure the left operand wasn't modified
     checkTest("testOperatorPlus #5", 16, a);
-
     //Test adding an int with an object
     c = 578 + a;
     checkTest("testOperatorPlus #6", 594, c);
     //make sure the right operand wasn't modified
     checkTest("testOperatorPlus #7", 16, a);
 }
-
+/*!
+ * Tests concatenating two roman numerals together
+ */
 void testOperatorPlusEqual()
 {
     //Test adding two roman objects
@@ -274,12 +287,13 @@ void testOperatorPlusEqual()
     checkTest("testOperatorPlusEqual #1", 2253, a);
     //make sure the right operand wasn't modified
     checkTest("testOperatorPlusEqual #2", 1201, b);
-
     //Test adding on an integer
     b += 17;
     checkTest("testOperatorPlusEqual #3", 1218, b);
 }
-
+/*!
+ * Test incrementing a roman value by 1
+ */
 void testOperatorIncrement()
 {
     //Test prefix increment
@@ -289,17 +303,16 @@ void testOperatorIncrement()
     checkTest("testOperatorIncrement #1", 1053, a);
     checkTest("testOperatorIncrement #2", 1053, b);
 }
-
+/*!
+ * Tests converting TO roman numeral
+ */
 void testOutput()
 {
     Romans a("MDCLXVI");
     string b = a.convertToRoman();
     checkTest("testOutput #1", "MDCLXVI", b);
-
     //This is really the value 7.  Your code should correctly read this in and convert it back to VII.
     Romans c("IIIIIII");
     b = c.convertToRoman();
     checkTest("testOutput #2", "VII", b);
-
 }
-
